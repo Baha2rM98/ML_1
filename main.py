@@ -164,9 +164,16 @@ class GaussianNBPredictor:
         print('Prediction completed.')
         print()
         print('Test data confusion matrix:')
-        print(self.__create_confusion_matrix(self.__test_data_Y, gnb.predict(self.__test_data_X)))
+        cm = self.__create_confusion_matrix(self.__test_data_Y, gnb.predict(self.__test_data_X))
+        print(cm)
+        print('Accuracy:')
+        print(cm.trace() / cm.sum())
+        print()
         print('Train data confusion matrix:')
-        print(self.__create_confusion_matrix(self.__train_data_Y, gnb.predict(self.__train_data_X)))
+        cm = self.__create_confusion_matrix(self.__train_data_Y, gnb.predict(self.__train_data_X))
+        print(cm)
+        print('Accuracy:')
+        print(cm.trace() / cm.sum())
 
 
 if __name__ == '__main__':
